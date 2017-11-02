@@ -41,7 +41,7 @@
 
   export default class Index extends wepy.page {
     config = {
-      navigationBarTitleText: 'y'
+      navigationBarTitleText: '主页'
     }
 
     components = {
@@ -74,7 +74,9 @@
 
     methods = {
       listitemTap (index, e) {
-        console.log(index)
+        if(index === 0) {
+          this.$navigate('/pages/dms/dms')
+        }
       }
     }
 
