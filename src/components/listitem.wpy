@@ -1,0 +1,67 @@
+<style type="less">
+  @import "../less/mixin";
+
+  .list-item{
+    .flex-v-center();
+    padding: 20rpx 40rpx;
+    background-color: #fff;
+    margin-bottom: 10rpx;
+    border-top:2rpx solid #dedede;
+    border-bottom:2rpx solid #dedede;
+
+    .list-item-text{
+      flex: 1;
+      font-size: 32rpx;
+      font-weight: bold;
+      color: @gcolor;
+    }
+
+    .list-item-ctext{
+      flex: 1;
+      color: @gcolor;
+    }
+
+    &:active{
+      background-color: rgba(255,255,255,.7);
+    }
+  }
+</style>
+<template>
+  <view class="list-item {{className}}" style="{{style}}" @tap="tap({{index}})">
+    <view class="list-item-text">{{text}}</view>
+    <view wx:if="{{ctext}}" class="list-item-ctext">{{ctext}}</view>
+    <!--<icon :name="icon" size="large"></icon>-->
+    <image class="icon-img normal" style="width:72rpx;height:72rpx;" src="../../images/{{icon}}.svg" mode="aspectFit"></image>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export default class Listitem extends wepy.component {
+    props = {
+      text: String,
+      ctext: {
+        type: String,
+        default: ''
+      },
+      icon: String,
+      style: {
+        type: String,
+        default: ''
+      },
+      className: {
+        type: String,
+        default: ''
+      }
+    }
+    components = {
+    }
+    data = {
+    }
+    methods = {
+      tap (index, $event) {
+        this.$emit('tap', index, $event)
+      }
+    }
+  }
+</script>
