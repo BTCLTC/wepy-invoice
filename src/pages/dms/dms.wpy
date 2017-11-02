@@ -300,12 +300,12 @@
           {
             text: '新建',
             icon: 'create.svg',
-            selectedIcon: 'create-selected.svg'
+            selectedIcon: 'create-selected.png'
           },
           {
             text: '列表',
             icon: 'list.svg',
-            selectedIcon: 'list-selected.svg'
+            selectedIcon: 'list-selected.png'
           }
         ]
       }
