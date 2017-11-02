@@ -69,6 +69,7 @@
     config = {
       pages: [
         'pages/dms/dms',
+        'pages/dmslist/dmslist',
         'pages/home/home',
         'pages/login/login',
         'pages/index/index'

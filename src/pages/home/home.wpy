@@ -41,7 +41,7 @@
 
   export default class Index extends wepy.page {
     config = {
-      navigationBarTitleText: '主页'
+      navigationBarTitleText: 'y'
     }
 
     components = {
