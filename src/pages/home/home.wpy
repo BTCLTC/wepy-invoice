@@ -12,7 +12,7 @@
 </style>
 <template>
   <view class="home-swiper-container">
-    <swiper class="swiper home-swiper" duration="300" current="0">
+    <swiper class="swiper home-swiper" autoplay="true" interval="5000" duration="300" indicatorDots="true">
       <swiper-item class="swiper-item">
         <image src="../../images/carousel_1.png"></image>
       </swiper-item>
