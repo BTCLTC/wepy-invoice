@@ -77,188 +77,72 @@
     }
   }
 
-  .query-form {
-    position: relative;
-    .flex-v-center();
-    margin: 60rpx;
-
-    .form-item {
-      margin-bottom: 0;
-      flex: 1;
-    }
-
-    .clear-icon {
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 20;
-    }
-
-  }
-
-  .table-cell.opt {
-    flex:none;
-    width:80rpx;
-
-    .icon {
-      padding: 0;
-    }
-  }
-
 </style>
 <template>
-  <view class="dms-page" wx:if="{{pageIndex===0}}">
-    <view class="bill-number">单据号：20171031-01</view>
-    <view class="bill-form">
-      <view class="bill-field">
-        <text class="bill-label">单据类型：</text>
-        <switchbutton :buttons="switchButtons" @tap.user="switchButton1Tap"></switchbutton>
-      </view>
-      <view class="bill-field">
-        <text class="bill-label">备 注：</text>
-        <remarkinput placeholder="备注可以为空" border="true"></remarkinput>
-      </view>
+  <view class="bill-number">单据号：20171031-01</view>
+  <view class="bill-form">
+    <view class="bill-field">
+      <text class="bill-label">单据类型：</text>
+      <switchbutton :buttons="switchButtons" @tap.user="switchButton1Tap"></switchbutton>
     </view>
-
-    <view class="scan-fields">
-      <qrcodeinput placeholder="输入二维码数字" border="true" icon="plus" iconRight="true" @iconTap.user="plusTap"></qrcodeinput>
-      <view class="mutilple-button">
-        <view>单扫</view>
-        <view>连扫</view>
-      </view>
-    </view>
-
-    <view class="table">
-      <view class="table-row table-header">
-        <view class="table-cell th order">序号</view>
-        <view class="table-cell th">二维码</view>
-        <view class="table-cell th">型号</view>
-        <view class="table-cell th">批号</view>
-      </view>
-      <view class="table-row">
-        <view class="table-cell td order">1</view>
-        <view class="table-cell td">9312128743435673</view>
-        <view class="table-cell td">H7429987355344</view>
-        <view class="table-cell td">19876332</view>
-      </view>
-      <view class="table-row">
-        <view class="table-cell td order">2</view>
-        <view class="table-cell td">9312128743435673</view>
-        <view class="table-cell td">H7429987355344</view>
-        <view class="table-cell td">19876332</view>
-      </view>
-      <view class="table-row">
-        <view class="table-cell td order">3</view>
-        <view class="table-cell td">9312128743435673</view>
-        <view class="table-cell td">H7429987355344</view>
-        <view class="table-cell td">19876332</view>
-      </view>
-      <view class="table-row">
-        <view class="table-cell td order">4</view>
-        <view class="table-cell td">9312128743435673</view>
-        <view class="table-cell td">H7429987355344</view>
-        <view class="table-cell td">19876332</view>
-      </view>
-      <view class="table-row">
-        <view class="table-cell td order">5</view>
-        <view class="table-cell td">9312128743435673</view>
-        <view class="table-cell td">H7429987355344</view>
-        <view class="table-cell td">19876332</view>
-      </view>
-      <view class="table-row">
-        <view class="table-cell td order">6</view>
-        <view class="table-cell td">9312128743435673</view>
-        <view class="table-cell td">H7429987355344</view>
-        <view class="table-cell td">19876332</view>
-      </view>
-    </view>
-
-    <view class="page-actions">
-      <submitbutton inline="true">提交</submitbutton>
-    </view>
-
-  </view>
-
-  <view class="dmslist-page" wx:if="{{pageIndex===1}}">
-    <view class="query-form">
-      <queryinput placeholder="搜索二维码" border="true" icon="search" @iconTap.user="queryTap"></queryinput>
-      <clearIcon name="clear" className="clear-icon" @tap.user="clearTap"></clearIcon>
-    </view>
-
-    <view class="table">
-      <view class="table-row table-header">
-        <view class="table-cell th order">序号</view>
-        <view class="table-cell th">单据编号</view>
-        <view class="table-cell th">单据类型</view>
-        <view class="table-cell th">明细数</view>
-        <view class="table-cell th">单据状态</view>
-        <view class="table-cell th opt"></view>
-      </view>
-      <view class="table-row">
-        <view class="table-cell td order">1</view>
-        <view class="table-cell td">20171031-01</view>
-        <view class="table-cell td">移库</view>
-        <view class="table-cell td">30</view>
-        <view class="table-cell td">已提交</view>
-        <view class="table-cell td opt">
-          <deleteIcon name="delete"></deleteIcon>
-        </view>
-      </view>
-      <view class="table-row">
-        <view class="table-cell td order">2</view>
-        <view class="table-cell td">20171031-01</view>
-        <view class="table-cell td">移库</view>
-        <view class="table-cell td">30</view>
-        <view class="table-cell td">已提交</view>
-        <view class="table-cell td opt">
-          <deleteIcon name="delete"></deleteIcon>
-        </view>
-      </view>
-      <view class="table-row">
-        <view class="table-cell td order">3</view>
-        <view class="table-cell td">20171031-01</view>
-        <view class="table-cell td">移库</view>
-        <view class="table-cell td">30</view>
-        <view class="table-cell td">已提交</view>
-        <view class="table-cell td opt">
-          <deleteIcon name="delete"></deleteIcon>
-        </view>
-      </view>
-      <view class="table-row">
-        <view class="table-cell td order">4</view>
-        <view class="table-cell td">20171031-01</view>
-        <view class="table-cell td">移库</view>
-        <view class="table-cell td">30</view>
-        <view class="table-cell td">已提交</view>
-        <view class="table-cell td opt">
-          <deleteIcon name="delete"></deleteIcon>
-        </view>
-      </view>
-      <view class="table-row">
-        <view class="table-cell td order">5</view>
-        <view class="table-cell td">20171031-01</view>
-        <view class="table-cell td">移库</view>
-        <view class="table-cell td">30</view>
-        <view class="table-cell td">已提交</view>
-        <view class="table-cell td opt">
-          <deleteIcon name="delete"></deleteIcon>
-        </view>
-      </view>
-      <view class="table-row">
-        <view class="table-cell td order">6</view>
-        <view class="table-cell td">20171031-01</view>
-        <view class="table-cell td">移库</view>
-        <view class="table-cell td">30</view>
-        <view class="table-cell td">已提交</view>
-        <view class="table-cell td opt">
-          <deleteIcon name="delete"></deleteIcon>
-        </view>
-      </view>
+    <view class="bill-field">
+      <text class="bill-label">备 注：</text>
+      <remarkinput placeholder="备注可以为空" border="true"></remarkinput>
     </view>
   </view>
 
-  <tabbar :tabBar="tabBar" @tabbarChange.user="tabbarChange"></tabbar>
+  <view class="scan-fields">
+    <qrcodeinput placeholder="输入二维码数字" border="true" icon="plus" iconRight="true" @iconTap.user="plusTap"></qrcodeinput>
+    <view class="mutilple-button">
+      <view>单扫</view>
+      <view>连扫</view>
+    </view>
+  </view>
+
+  <view class="table">
+    <view class="table-row table-header">
+      <view class="table-cell th order">序号</view>
+      <view class="table-cell th">二维码</view>
+      <view class="table-cell th">型号</view>
+      <view class="table-cell th">批号</view>
+    </view>
+    <view class="table-row">
+      <view class="table-cell td order">1</view>
+      <view class="table-cell td">9312128743435673</view>
+      <view class="table-cell td">H7429987355344</view>
+      <view class="table-cell td">19876332</view>
+    </view>
+    <view class="table-row">
+      <view class="table-cell td order">2</view>
+      <view class="table-cell td">9312128743435673</view>
+      <view class="table-cell td">H7429987355344</view>
+      <view class="table-cell td">19876332</view>
+    </view>
+    <view class="table-row">
+      <view class="table-cell td order">3</view>
+      <view class="table-cell td">9312128743435673</view>
+      <view class="table-cell td">H7429987355344</view>
+      <view class="table-cell td">19876332</view>
+    </view>
+    <view class="table-row">
+      <view class="table-cell td order">4</view>
+      <view class="table-cell td">9312128743435673</view>
+      <view class="table-cell td">H7429987355344</view>
+      <view class="table-cell td">19876332</view>
+    </view>
+    <view class="table-row">
+      <view class="table-cell td order">5</view>
+      <view class="table-cell td">9312128743435673</view>
+      <view class="table-cell td">H7429987355344</view>
+      <view class="table-cell td">19876332</view>
+    </view>
+  </view>
+
+  <view class="page-actions">
+    <submitbutton inline="true">提交</submitbutton>
+  </view>
+
+  <tabbar :tabBar="tabBar" disabled="true" @tabbarChange.user="tabbarChange"></tabbar>
 
 </template>
 
@@ -289,13 +173,12 @@
     }
 
     data = {
-      pageIndex: 0,
       switchButtons: ['移库', '销量上报'],
       tabBar: {
         color: '#777',
         selectedColor: '#01458e',
         borderStyle: '#ddd',
-        backgroundColor: '#f9f9f9',
+        backgroundColor: '#fff',
         list: [
           {
             text: '新建',
@@ -326,7 +209,9 @@
         console.log(e)
       },
       tabbarChange (index) {
-        this.pageIndex = index
+        if (index === 1) {
+          this.$navigate('/pages/dmslist/dmslist')
+        }
       },
       queryTap (e) {
         console.log('query tap')

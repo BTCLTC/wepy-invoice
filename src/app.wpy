@@ -70,7 +70,8 @@
       pages: [
         'pages/login/login',
         'pages/home/home',
-        'pages/dms/dms'
+        'pages/dms/dms',
+        'pages/dmslist/dmslist'
       ],
       window: {
         // 类型：HexColor；默认值：#000000

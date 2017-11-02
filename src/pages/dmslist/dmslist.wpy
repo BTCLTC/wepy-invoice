@@ -112,7 +112,7 @@
     </view>
   </view>
 
-  <tabbar :tabBar="tabBar" @tabbarChange.user="tabbarChange"></tabbar>
+  <tabbar :tabBar="tabBar" disabled="true" tabIndex="1" @tabbarChange.user="tabbarChange"></tabbar>
 
 </template>
 
@@ -141,17 +141,17 @@
         color: '#777',
         selectedColor: '#01458e',
         borderStyle: '#ddd',
-        backgroundColor: '#f9f9f9',
+        backgroundColor: '#fff',
         list: [
           {
             text: '新建',
             icon: 'create.svg',
-            selectedIcon: 'create-selected.svg'
+            selectedIcon: 'create-selected.png'
           },
           {
             text: '列表',
             icon: 'list.svg',
-            selectedIcon: 'list-selected.svg'
+            selectedIcon: 'list-selected.png'
           }
         ]
       }
@@ -169,7 +169,9 @@
         console.log('clear tap')
       },
       tabbarChange (index) {
-        console.log(index)
+        if (index === 0) {
+          this.$back()
+        }
       }
     }
 
