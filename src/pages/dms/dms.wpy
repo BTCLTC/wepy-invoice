@@ -166,7 +166,6 @@
       qrcodeinput: Formitem,
       switchbutton: Switchbutton,
       submitbutton: Button,
-      queryinput: Formitem,
       clearIcon: Icon,
       deleteIcon: Icon,
       tabbar: Tabbar

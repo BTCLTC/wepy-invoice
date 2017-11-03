@@ -9,6 +9,16 @@
       width: 100%;
     }
   }
+  .list-item-text{
+    flex: 1;
+    font-size: 32rpx;
+    font-weight: bold;
+    color: @gcolor;
+  }
+  .list-item-ctext{
+    flex: 1;
+    color: @gcolor;
+  }
 </style>
 <template>
   <view class="home-swiper-container">
@@ -27,7 +37,10 @@
   <notice :notices="notices"></notice>
   <view class="list-group">
     <repeat for="{{listgroup}}" key="index">
-      <listitem :icon="item.icon" :text="item.text" :ctext="item.ctext" :index="index" @tap.user="listitemTap"></listitem>
+      <listitem :icon="item.icon" :iconRight="true" @tap.user="listitemTap">
+        <view class="list-item-text">{{item.text}}</view>
+        <view class="list-item-ctext">{{item.ctext}}</view>
+      </listitem>
     </repeat>
   </view>
 </template>
@@ -76,6 +89,9 @@
       listitemTap (index, e) {
         if(index === 0) {
           this.$navigate('/pages/dms/dms')
+        }
+        else if(index === 1) {
+          this.$navigate('/pages/flow/flow')
         }
       }
     }

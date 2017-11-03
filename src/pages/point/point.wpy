@@ -1,0 +1,118 @@
+<style lang="less">
+  @import "../../less/mixin";
+
+  page {
+    background-color: #fff;
+  }
+  .point-listgroup {
+    height: 400rpx;
+  }
+  .point-listgroup {
+    .list-item {
+      margin-bottom: 0;
+      margin-top: -2rpx;
+    }
+  }
+
+  .list-item:nth-child(2){
+    background-color: #f8f8f8;
+  }
+
+  .list-item-text{
+    flex: 1;
+    font-size: 32rpx;
+  }
+
+  .record-item {
+    .flex-v-center();
+    padding: 40rpx;
+    border-bottom: 2rpx solid #dedede;
+
+    &:before {
+      content: "•";
+      font-size: 50rpx;
+      font-weight: bold;
+      margin-right: 16rpx;
+      line-height: 0.1;
+    }
+  }
+
+  .point-actions {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 30rpx;
+    .flex();
+    justify-content: flex-end;
+    background-color: #f9f9f9;
+    border-top: 2rpx solid #dedede;
+  }
+</style>
+<template>
+  <view class="point-listgroup">
+    <repeat for="{{listgroup}}">
+      <listitem :icon="item.icon" :text="item.text" :ctext="item.ctext" @tap.user="listitemTap">
+        <view class="list-item-text">{{item.text}}</view>
+      </listitem>
+      <view class="list-subview" wx:if="{{item.subList&&item.subList.length>0}}">
+        <repeat for="{{item.subList}}" item="sub">
+          <view class="record-item">{{sub}}</view>
+        </repeat>
+      </view>
+    </repeat>
+  </view>
+
+  <view class="point-actions">
+    <exchange-button>积分兑换</exchange-button>
+  </view>
+
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import fetch from '../../service/fetch'
+  import Listitem from '../../components/listitem'
+  import Button from '../../components/button'
+  import {showError, showToast} from '../../utils/util'
+
+  export default class Index extends wepy.page {
+    config = {
+      navigationBarTitleText: '积分管理'
+    }
+
+    components = {
+      listitem: Listitem,
+      'exchange-button': Button
+    }
+
+    data = {
+      listgroup: [
+        {
+          icon: 'point',
+          text: '剩余积分：550积分',
+          subList: []
+        },
+        {
+          icon: 'point-record',
+          text: '兑换记录',
+          subList: ['2017年10月26日手机充值卡100元已到账']
+        }
+      ]
+    }
+
+    computed = {
+
+    }
+
+    methods = {
+      listitemTap (index, e) {
+       console.log(index)
+      }
+    }
+
+    onLoad () {
+
+    }
+  }
+</script>

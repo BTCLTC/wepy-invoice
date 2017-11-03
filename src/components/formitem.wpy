@@ -98,11 +98,11 @@
 
     }
     computed = {
-     iconLeft () {
-       if (this.iconRight === 'true') {
-         return this.iconLeft = 'false'
-       }
-       return this.iconLeft
+      iconLeft () {
+        if (this.iconRight === 'true') {
+          return this.iconLeft = 'false'
+        }
+        return this.iconLeft
       }
     }
     methods = {

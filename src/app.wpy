@@ -33,6 +33,10 @@
     vertical-align: middle;
   }
 
+  .h {
+    color: #03468f;
+  }
+
   .table-row {
     .flex-v-center();
     border-bottom: 1px solid #ccc;
@@ -71,7 +75,9 @@
         'pages/login/login',
         'pages/home/home',
         'pages/dms/dms',
-        'pages/dmslist/dmslist'
+        'pages/dmslist/dmslist',
+        'pages/flow/flow',
+        'pages/point/point'
       ],
       window: {
         // 类型：HexColor；默认值：#000000
@@ -110,7 +116,7 @@
           },
           {
             text: '我的',
-            pagePath: 'pages/myinfo/myinfo',
+            pagePath: 'pages/point/point',
             iconPath: 'images/my.png',
             selectedIconPath: 'images/my-selected.png'
           }

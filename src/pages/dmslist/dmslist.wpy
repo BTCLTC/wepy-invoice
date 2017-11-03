@@ -37,7 +37,7 @@
 </style>
 <template>
   <view class="query-form">
-    <queryinput placeholder="搜索二维码" border="true" icon="search" @iconTap.user="queryTap"></queryinput>
+    <queryinput placeholder="搜索二维码" border="true" icon="find" @iconTap.user="queryTap"></queryinput>
     <clearIcon name="clear" className="clear-icon" @tap.user="clearTap"></clearIcon>
   </view>
 
